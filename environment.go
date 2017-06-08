@@ -47,7 +47,7 @@ func (e EnvironmentResult) String() (out map[string]string) {
 // List lists the environments in the Chef server.
 //
 // Chef API docs: https://docs.chef.io/api_chef_server.html#environments
-func (e *EnvironmentService) List() (data *EnvironmentResult, err error) {
+func (e *EnvironmentService) List() (data EnvironmentResult, err error) {
 	err = e.client.magicRequestDecoder("GET", "environments", nil, &data)
 	return
 }
@@ -55,7 +55,7 @@ func (e *EnvironmentService) List() (data *EnvironmentResult, err error) {
 // Create an environment in the Chef server.
 //
 // Chef API docs: https://docs.chef.io/api_chef_server.html#environments
-func (e *EnvironmentService) Create(environment *Environment) (data *EnvironmentResult, err error) {
+func (e *EnvironmentService) Create(environment *Environment) (data EnvironmentResult, err error) {
 	body, err := JSONReader(environment)
 	if err != nil {
 		return
