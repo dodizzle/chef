@@ -40,8 +40,8 @@ func strMapToStr(e map[string]string) (out string) {
 }
 
 // String makes EnvironmentResult implement the string result
-func (e EnvironmentResult) String() (out string) {
-	return strMapToStr(e)
+func (e EnvironmentResult) String() (out map[string]string) {
+	return e
 }
 
 // List lists the environments in the Chef server.
